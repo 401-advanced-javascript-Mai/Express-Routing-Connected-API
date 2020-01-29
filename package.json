@@ -1,0 +1,33 @@
+{
+  "name": "Express-Routing-Connected-API",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "directories": {
+    "lib": "lib"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/401-advanced-javascript-Mai/Express-Routing-Connected-API.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/401-advanced-javascript-Mai/Express-Routing-Connected-API/issues"
+  },
+  "homepage": "https://github.com/401-advanced-javascript-Mai/Express-Routing-Connected-API#readme",
+  "dependencies": {
+    "@code-fellows/supergoose": "^1.0.1",
+    "cors": "^2.8.5",
+    "dotenv": "^8.2.0",
+    "eslint": "^6.8.0",
+    "express": "^4.17.1",
+    "jest": "^25.1.0",
+    "mongose": "0.0.2-security",
+    "morgan": "^1.9.1"
+  }
+}
