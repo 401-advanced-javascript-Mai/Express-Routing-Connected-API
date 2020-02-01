@@ -40,15 +40,16 @@ function getProduct(req, res, next) {
   
 function postProducts(req, res, next) {
   // expects the record that was just added to the database
-  products.post(req.body)
+  products.create(req.body)
     .then(result => res.status(201).json(result))
+    console.log('result', result)
     .catch(next);
 }
   
   
 function putProducts(req, res, next) {
   // expects the record that was just updated in the database
-  products.put(req.params.id, req.body)
+  products.update(req.params.id, req.body)
     .then(result => res.status(200).json(result))
     .catch(next);
 }

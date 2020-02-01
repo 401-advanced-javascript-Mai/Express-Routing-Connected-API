@@ -13,20 +13,20 @@ describe('category API', () => {
       });
   });
 
-  // it('post a new category item', () => {
-  //   let testObj = { categoryType : "shoes" };
-  //   return mockRequest.post('/api/v1/categories')
-  //     .send(testObj)
-  //     .then(data => {
-  //         // console.log ('data', data)
-  //       console.log('***********', data.body);
-  //       let record = data.body;
-  //       Object.keys(testObj).forEach(key => {
-  //           console.log('object.keys', Object.keys(testObj))
-  //         expect(record[key]).toEqual(testObj[key]);
-  //       });
-  //      })
-  // });
+  it('post a new category item', () => {
+    let testObj = { categoryType : 'shoes' };
+    return mockRequest.post('/api/v1/categories')
+      .send(testObj)
+      .then(data => {
+        // console.log ('data', data)
+        console.log('***********', data.body._id);
+        // let record = data.body;
+        Object.keys(testObj).forEach(element => {
+          // console.log('object.keys', Object.keys(testObj))
+          expect(data.body[element]).toEqual(testObj[element]);
+        });
+      });
+  });
 });
 
 describe('product API', () => {
@@ -36,4 +36,20 @@ describe('product API', () => {
         expect(data.status).toBe(200);
       });
   });
+  //   it('post a new product item', () => {
+  //     let testObj = { categoryType : 'shoes', thePrice : 100 };
+  //     return mockRequest.post('/api/v1/products')
+  //       .send(testObj)
+  //       .then(data => {
+  //         console.log('***********', data.body);
+
+  //         // let toAdd = data.body ;
+  //         Object.keys(testObj).forEach(element => {
+  //           expect(data.body[element]).toEqual(testObj[element]);
+  //         });
+  //       });
+  //   });
+
+    
+
 });

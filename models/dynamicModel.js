@@ -15,13 +15,13 @@ class Model {
     return this.schema.find(queryObject);
   }
 
-  create(data) {
-    let newData = new this.schema(data);
+  create(record) {
+    let newData = new this.schema(record);
     return newData.save();
   }
 
-  update(_id, data) {
-    return this.schema.findByIdAndUpdate(_id, data, { new: true });
+  update(_id, record) {
+    return this.schema.findByIdAndUpdate(_id, record, { new: true });
   }
 
   delete(_id) {
