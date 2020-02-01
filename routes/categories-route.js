@@ -1,12 +1,12 @@
 'use strict';
 
 
-const express = require('express');
-const router = express.Router();
+const express = require ('express');
 
 
 
 const categories = require('../models/categoriesAndProductModel/categories-model.js');
+const router = express.Router();
 
 
 
@@ -20,7 +20,7 @@ router.delete('/categories/:id', deleteCategories);
 
 
 // ROUTE function which handle the information 
-function getCategories(request, response, next) {
+function getCategories(req, res, next) {
   // expects an array of object to be returned from the model
   categories.get()
     .then(data => {
@@ -28,36 +28,36 @@ function getCategories(request, response, next) {
         count: data.length,
         results: data,
       };
-      response.status(200).json(output);
+      res.status(200).json(output);
     })
     .catch(next);
 }
 
-function getCategory(request, response, next) {
+function getCategory(req, res, next) {
   // expects an array with the one matching record from the model
-  categories.get(request.params.id)
-    .then(result => response.status(200).json(result[0]))
+  categories.get(req.params.id)
+    .then(result => res.status(200).json(result[0]))
     .catch(next);
 }
 
-function postCategories(request, response, next) {
+function postCategories(req, res, next) {
   // expects the record that was just added to the database
-  categories.post(request.body)
-    .then(result => response.status(201).json(result[0]))
+  categories.create(req.body)
+    .then(result => res.status(200).json(result[0]))
     .catch(next);
 }
 
-function putCategories(request, response, next) {
+function putCategories(req, res, next) {
   // expects the record that was just updated in the database
-  categories.put(request.params.id, request.body)
-    .then(result => response.status(200).json(result[0]))
+  categories.update(req.params.id, req.body)
+    .then(result => res.status(200).json(result[0]))
     .catch(next);
 }
 
-function deleteCategories(request, response, next) {
+function deleteCategories(req, res, next) {
   // Expects no return value (resource was deleted)
-  categories.delete(request.params.id)
-    .then(result => response.status(200).json(result))
+  categories.delete(req.params.id)
+    .then(result => res.status(200).json(result))
     .catch(next);
 }
 

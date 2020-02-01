@@ -8,8 +8,8 @@ const MONGODB_URI = 'mongodb://localhost:27017/categoryAndProduct-db';
 const mongooseOptions = {
   useNewUrlParser: true,
   useCreateIndex: true,
-  useUnifiedTopology: true
-}
+  useUnifiedTopology: true,
+};
 
 mongoose.connect(MONGODB_URI, mongooseOptions);
 

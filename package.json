@@ -8,7 +8,7 @@
   },
   "scripts": {
     "test": "jest --verbose --coverage" ,
-    "line": "eslint '**/*.js",
+    "lint": "eslint '**/*.js'",
     "start":" index.js "
   },
   "repository": {

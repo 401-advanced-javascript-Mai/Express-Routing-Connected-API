@@ -4,8 +4,8 @@
 const mongoose = require('mongoose');
 
 const product = mongoose.Schema({
-    categoryType: { type: String, required: true },
-    thePrice:{ type: Number , require:true}
-  });
+  categoryType: { type: String, required: true },
+  thePrice:{ type: Number , require:true},
+});
   
-  module.exports = mongoose.model('product', product);
+module.exports = mongoose.model('product', product);

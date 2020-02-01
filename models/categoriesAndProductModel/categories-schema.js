@@ -4,8 +4,8 @@
 const mongoose = require('mongoose');
 
 const category = mongoose.Schema({
-    categoryType: { type: String, required: true }
+  categoryType: { type: String, required: true },
   
-  });
+});
   
-  module.exports = mongoose.model('category', category);
+module.exports = mongoose.model('category', category);

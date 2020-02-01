@@ -1,41 +1,39 @@
 'use strict';
-/**
- * Combines SuperTest and Mongoose Memory Server
- * to reduce (hopefully) the pain of
- * testing a Mongoose API
- */
 
-const mongoose = require('mongoose');
-const { default: MongoMemoryServer } = require('mongodb-memory-server');
-module.exports = require('supertest');
+const { server } = require('../lib/server.js');
+const supergoose = require('@code-fellows/supergoose');
+const mockRequest = supergoose(server);
 
-let mongoServer;
 
-async function startDB() {
-  mongoServer = new MongoMemoryServer();
-
-  const mongoUri = await mongoServer.getConnectionString();
-
-  const mongooseOptions = {
-    useNewUrlParser: true,
-    useCreateIndex: true,
-  };
-
-  await mongoose.connect(mongoUri, mongooseOptions);
-}
-
-async function stopDB() {
-  await mongoose.disconnect();
-  mongoServer && await mongoServer.stop();
-}
-
-beforeAll(startDB);
-afterAll(stopDB);
-
-if (!module.parent) {
-  describe('supergoose', () => {
-    it('can connect', async () => {
-      expect(mongoose.connection.db).toBeDefined();
-    });
+describe('category API', () => {
+  it(' the api route works and send status 200', ()=>{
+    return mockRequest.get('/api/v1/categories')
+      .then(data =>{
+        expect(data.status).toBe(200);
+      });
   });
-}
+
+  // it('post a new category item', () => {
+  //   let testObj = { categoryType : "shoes" };
+  //   return mockRequest.post('/api/v1/categories')
+  //     .send(testObj)
+  //     .then(data => {
+  //         // console.log ('data', data)
+  //       console.log('***********', data.body);
+  //       let record = data.body;
+  //       Object.keys(testObj).forEach(key => {
+  //           console.log('object.keys', Object.keys(testObj))
+  //         expect(record[key]).toEqual(testObj[key]);
+  //       });
+  //      })
+  // });
+});
+
+describe('product API', () => {
+  it(' the api route works and send status 200', ()=>{
+    return mockRequest.get('/api/v1/products')
+      .then(data =>{
+        expect(data.status).toBe(200);
+      });
+  });
+});

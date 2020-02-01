@@ -19,45 +19,45 @@ router.delete('/products/:id', deleteProducts);
 
 
 function getProducts(req, res, next) {
-    // expects an array of objects back
-    products.get()
-      .then(data => {
-        const output = {
-          count: data.length,
-          results: data,
-        };
-        res.status(200).json(output);
-      })
-      .catch(next);
-  }
+  // expects an array of objects back
+  products.get()
+    .then(data => {
+      const output = {
+        count: data.length,
+        results: data,
+      };
+      res.status(200).json(output);
+    })
+    .catch(next);
+}
   
-  function getProduct(req, res, next) {
-    // expects an array with one object in it
-    products.get(req.params.id)
-      .then(result => res.status(200).json(result[0]))
-      .catch(next);
-  }
+function getProduct(req, res, next) {
+  // expects an array with one object in it
+  products.get(req.params.id)
+    .then(result => res.status(200).json(result[0]))
+    .catch(next);
+}
   
-  function postProducts(req, res, next) {
-    // expects the record that was just added to the database
-    products.post(req.body)
-      .then(result => res.status(201).json(result))
-      .catch(next);
-  }
+function postProducts(req, res, next) {
+  // expects the record that was just added to the database
+  products.post(req.body)
+    .then(result => res.status(201).json(result))
+    .catch(next);
+}
   
   
-  function putProducts(req, res, next) {
-    // expects the record that was just updated in the database
-    products.put(req.params.id, req.body)
-      .then(result => res.status(200).json(result))
-      .catch(next);
-  }
+function putProducts(req, res, next) {
+  // expects the record that was just updated in the database
+  products.put(req.params.id, req.body)
+    .then(result => res.status(200).json(result))
+    .catch(next);
+}
   
-  function deleteProducts(req, res, next) {
-    // Expects no return value (the resource should be gone)
-    products.delete(req.params.id)
-      .then(result => res.status(200).json(result))
-      .catch(next);
-  }
+function deleteProducts(req, res, next) {
+  // Expects no return value (the resource should be gone)
+  products.delete(req.params.id)
+    .then(result => res.status(200).json(result))
+    .catch(next);
+}
 
-  module.exports = router ;
+module.exports = router ;
