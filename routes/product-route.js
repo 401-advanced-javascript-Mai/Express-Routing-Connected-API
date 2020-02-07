@@ -1,5 +1,8 @@
 'use strict';
 
+////// the information was in the starter code in the lab , but i devided it  
+
+
 const express = require('express');
 const router = express.Router();
 
@@ -13,7 +16,6 @@ router.get('/products/:id', getProduct);
 router.post('/products', postProducts);
 router.put('/products/:id', putProducts);
 router.delete('/products/:id', deleteProducts);
-
 
 
 
@@ -41,8 +43,9 @@ function getProduct(req, res, next) {
 function postProducts(req, res, next) {
   // expects the record that was just added to the database
   products.create(req.body)
-    .then(result => res.status(201).json(result))
-    console.log('result', result)
+  // console.log('req.body', req.body)
+    .then(result =>res.status(201).json(result))
+    
     .catch(next);
 }
   

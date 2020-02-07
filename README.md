@@ -2,7 +2,7 @@
 
 ## lab-08 -Express-Routing-Connected-API
 ## Author:
-mai yousef
+mai yousef and we have starter code from Mr. Brian Nation 
 
 ## Links and Resources
 submission PR https://github.com/401-advanced-javascript-Mai/Express-Routing-Connected-API/pull/1
@@ -15,8 +15,7 @@ npm run start
 npm run test
 
 ## Any tests of note? no Describe any tests that you did not complete, skipped, etc? 
- test not completed yet
+ delete test not work 
 
  ## uml 
- https://github.com/401-advanced-javascript-Mai/Express-Routing-Connected-API/blob/lab08/express.jpg
- 
+![](express.jpg)

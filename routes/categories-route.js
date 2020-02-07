@@ -1,5 +1,6 @@
 'use strict';
 
+////// the information was in the starter code in the lab , but i devided it  
 
 const express = require ('express');
 
